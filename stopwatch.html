@@ -33,10 +33,12 @@
             $buttonStart.click( function () {
                 clearInterval(interval);
                 interval = setInterval(startTimer, 10);
+                $timerPara.css("background-color", "green");
             });
 
             $buttonStop.click(function () {
                 clearInterval(interval);
+                $timerPara.css("background-color", "red");
             });
 
             $buttonReset.click(function () {
@@ -45,6 +47,7 @@
                 seconds = "00";
                 $appendTens.html(tens);
                 $appendSeconds.html(seconds);
+                $timerPara.css("background-color", "grey");
             });
 
             function startTimer() {
@@ -95,6 +98,11 @@
             width: 200px;
             text-align: center;
         }
+
+        .timer-background {
+            background-color: grey;
+        }
+        
     </style>
 </head>
 
