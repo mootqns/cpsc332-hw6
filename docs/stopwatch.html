@@ -17,6 +17,7 @@
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
         crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
     <script>
         $(document).ready(function () {
 
@@ -27,7 +28,7 @@
             var $buttonStart = $('#button-start');
             var $buttonStop = $('#button-stop');
             var $buttonReset = $('#button-reset');
-            var $timerPara = $('#timer')
+            var $timerPara = $('#timer');
             var interval;
 
             $buttonStart.click( function () {
@@ -39,6 +40,9 @@
             $buttonStop.click(function () {
                 clearInterval(interval);
                 $timerPara.css("background-color", "red");
+
+                // resetting background opacity
+                $('.inside').css('background-color', 'rgba(254,250,224,1.0)');
             });
 
             $buttonReset.click(function () {
@@ -48,6 +52,9 @@
                 $appendTens.html(tens);
                 $appendSeconds.html(seconds);
                 $timerPara.css("background-color", "grey");
+
+                // resetting background opacity
+                $('.inside').css('background-color', 'rgba(254,250,224,1.0)');
             });
 
             function startTimer() {
@@ -91,9 +98,37 @@
                'color':'#cad2c5',
                'padding':'2px 5px',
                'margin-top':'4px',
+               'margin-bottom':'8px',
                'width':'50px',
                'font-size':'16px',
-               'font-family':'belleza'
+               'font-family': 'belleza'
+            });
+            
+            // styling timer using JQuery
+            $('.wrapper').css({
+                'display': 'flex',
+                'flex-direction': 'column',
+                'justify-content': 'space-around',
+                'align-items': 'center',
+                'text-align': 'center',
+                'padding': '20px',
+            });
+
+            $('.inside').css({
+                'background-color': '#fefae0',
+                'margin': '40px 50px',
+                'padding': '30px',
+                'border' : '5px dashed #dda15e',
+                'border-radius': '20px',
+                'font-family': 'belleza',
+                'text-shadow': '1px 1px #dda15e'
+            });
+
+            $('#timer').css({
+                'border': '2px solid burlywood',
+                'border-radius': '7px',
+                'width': '200px',
+                'text-align': 'center',
             });
 
 
@@ -101,23 +136,16 @@
         
     </script>
     <style>
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            text-align: center;
-        }
-
-        #timer {
-            border: 2px solid burlywood;
-            border-radius: 7px;
-            width: 200px;
-            text-align: center;
+        body {
+            background-color: #283618;
         }
 
         .timer-background {
             background-color: grey;
+        }
+
+        .button-wrapper {
+            flex-direction: row;
         }
         
     </style>
@@ -125,12 +153,15 @@
 
 <body>
     <div class="wrapper">
-        <h1>Stopwatch</h1>
-        <h2>Vanilla JavaScript Stopwatch</h2>
-        <p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
-        <button id="button-start">Start</button>
-        <button id="button-stop">Stop</button>
-        <button id="button-reset">Reset</button>
+        <div class="inside">
+            <h2>JQuery Stopwatch</h2>
+            <p id="timer"><span id="seconds">00</span>:<span id="tens">00</span></p>
+            <div class="button-wrapper">
+                <button id="button-start">Start</button>
+                <button id="button-stop">Stop</button>
+                <button id="button-reset">Reset</button>
+            </div>
+        </div>
     </div>
 </body>
 
