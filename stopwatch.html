@@ -75,9 +75,26 @@
                 }
             }
             
-            // done w/ js -> jquery... moving on
+            // --  done w/ js -> jquery... moving on  -- 
+
+            // adding class to timer paragraph
             $timerPara.addClass('timer-background');
 
+            // adding class to each button & stying w/ single object literal
+            $buttonStart.addClass('btn');
+            $buttonStop.addClass('btn');
+            $buttonReset.addClass('btn');
+            
+            $('.btn').css({
+               'border-radius':'10px',
+               'background-color':'#52796f',
+               'color':'#cad2c5',
+               'padding':'2px 5px',
+               'margin-top':'4px',
+               'width':'50px',
+               'font-size':'16px',
+               'font-family':'belleza'
+            });
 
 
         });
