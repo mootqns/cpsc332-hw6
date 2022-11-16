@@ -1,0 +1,17 @@
+/* Modified from: https://codepen.io/cathydutton/pen/GBcvo
+Author: Matt Nguyen
+Course: CPSC332 
+Assigment: Homework 6
+Last Modified: 11.11.2022 */
+
+body {
+    background-color: #283618;
+}
+
+.timer-background {
+    background-color: grey;
+}
+
+.button-wrapper {
+    flex-direction: row;
+}
