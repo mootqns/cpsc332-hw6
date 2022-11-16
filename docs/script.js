@@ -25,7 +25,7 @@ $(document).ready(function () {
     $buttonStop.click(function () {
         clearInterval(interval);
 
-        if(!($appendTens.html() === "00" || $appendSeconds.html() === "00"))
+        if(!($appendTens.html() === "00" && $appendSeconds.html() === "00"))
             $timerPara.css("background-color", "red");
 
         // resetting background opacity
