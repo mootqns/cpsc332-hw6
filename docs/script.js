@@ -92,7 +92,8 @@ $(document).ready(function () {
 
     // adding class to timer paragraph
     $timerPara.addClass('timer-background');
-
+    $('.timer-background').css("background-color", "grey");
+    
     // adding class to each button & stying w/ single object literal
     $buttonStart.addClass('btn');
     $buttonStop.addClass('btn');
