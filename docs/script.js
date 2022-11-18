@@ -28,8 +28,8 @@ $(document).ready(function () {
         if(!($appendTens.html() === "00" && $appendSeconds.html() === "00"))
             $timerPara.css("background-color", "red");
 
-        // resetting background opacity
-        $('.inside').css('background-color', 'rgba(254,250,224,1.0)');
+        // resetting background opacity -- fix this -- look at example on canvas
+        // $timerPara.css('background-color', 'rgba(128,128,128,1.0)');
     });
 
     $buttonReset.click(function () {
@@ -40,8 +40,8 @@ $(document).ready(function () {
         $appendSeconds.html(seconds);
         $timerPara.css("background-color", "grey");
 
-        // resetting background opacity
-        $('.inside').css('background-color', 'rgba(254,250,224,1.0)');
+        // resetting background opacity -- fix this
+        $timerPara.css('background-color', 'rgba(128,128,128,1.0)');
     });
 
     function startTimer() {
