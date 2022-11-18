@@ -6,6 +6,11 @@
 
 $(document).ready(function () {
 
+// definitely the easiest way is the .animate(), see 9.4.7 for that. This can be used with an interval timer.
+// It's not a lot of code so I can't really go into much more depth without just telling you how to do it completely 
+// beyond the tip. Another tip i can provide is that you'll need a second interval timer (in addition to the already 
+// provided starter code method). one timer starts the clock, the other starts the opacity animation.
+
     var seconds = 00;
     var tens = 00;
     var $appendTens =$('#tens');
@@ -15,33 +20,48 @@ $(document).ready(function () {
     var $buttonReset = $('#button-reset');
     var $timerPara = $('#timer');
     var interval;
+    var background_interval;
 
     $buttonStart.click( function () {
         clearInterval(interval);
+        clearInterval(background_interval);
+
         interval = setInterval(startTimer, 10);
         $timerPara.css("background-color", "green");
+
+        // creating background animation function that calls itself in callback
+        function backgroundAnimation() {
+            $timerPara.animate({opacity : "0.8"}).animate({opacity : "1.0"}, backgroundAnimation);
+        }
+        // calling it once
+        backgroundAnimation();  
     });
 
     $buttonStop.click(function () {
         clearInterval(interval);
+        // clearing the animation queue
+        $timerPara.stop(true);
 
         if(!($appendTens.html() === "00" && $appendSeconds.html() === "00"))
             $timerPara.css("background-color", "red");
-
-        // resetting background opacity -- fix this -- look at example on canvas
-        // $timerPara.css('background-color', 'rgba(128,128,128,1.0)');
+        
+        // resetting background opacity
+        $timerPara.css("opacity" , "1.0");
     });
 
     $buttonReset.click(function () {
         clearInterval(interval);
+        // clearing the animation queue
+        $timerPara.stop(true);
+
         tens = "00";
         seconds = "00";
         $appendTens.html(tens);
         $appendSeconds.html(seconds);
         $timerPara.css("background-color", "grey");
 
-        // resetting background opacity -- fix this
-        $timerPara.css('background-color', 'rgba(128,128,128,1.0)');
+         // resetting background opacity
+         $timerPara.css("opacity" , "1.0");
     });
 
     function startTimer() {
